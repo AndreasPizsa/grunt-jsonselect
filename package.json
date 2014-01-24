@@ -1,0 +1,47 @@
+{
+  "name": "grunt-jsonselect",
+  "description": "Select elements from a JSON file and write them to individual JSON files.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/AndreasPizsa/grunt-jsonselect",
+  "author": {
+    "name": "Andreas Pizsa",
+    "url": "https://github.com/AndreasPizsa"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AndreasPizsa/grunt-jsonselect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AndreasPizsa/grunt-jsonselect/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/AndreasPizsa/grunt-jsonselect/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "tasks/jsonselect.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.2",
+    "grunt-contrib-coffee": "~0.8.2",
+    "load-grunt-tasks": "~0.2.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "JSONSelect": "~0.4.0"
+  }
+}

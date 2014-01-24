@@ -1,0 +1,16 @@
+{
+	"objects": [
+		{
+			"id": "file1",
+			"contents": {
+				"test":"test1"
+			}
+		},
+		{
+			"id": "file2",
+			"contents": {
+				"test":"test2"
+			}
+		}		
+	]
+}
