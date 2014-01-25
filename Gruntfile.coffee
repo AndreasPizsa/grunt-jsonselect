@@ -10,6 +10,10 @@ module.exports = (grunt) ->
 	
 	# Project configuration.
 	grunt.initConfig
+		release:
+			github:
+				repo: 'AndreasPizsa/grunt-jsonselect'
+
 		coffee:
 			compile:
 				expand: true
@@ -33,6 +37,8 @@ module.exports = (grunt) ->
 			tests:
 				item:			'.objects > *'
 				filename:	'.id'
+				itemFilter: (item)->
+					return item.id != 'file2'
 				expand: true
 				flatten: true
 				cwd:	'test'

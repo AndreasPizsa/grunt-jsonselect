@@ -1,3 +1,5 @@
 node_modules
 npm-debug.log
 tmp
+grunt-jsonselect.sublime-workspace
+grunt-jsonselect.sublime-project

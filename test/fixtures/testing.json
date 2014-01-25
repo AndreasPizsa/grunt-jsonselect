@@ -11,6 +11,12 @@
 			"contents": {
 				"test":"test2"
 			}
-		}		
+		},
+		{
+			"id": "file3",
+			"contents": {
+				"test":"test3"
+			}
+		}
 	]
 }

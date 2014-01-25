@@ -19,8 +19,9 @@ Use `load-grunt-tasks` to automatically enable `grunt-jsonselect` in your `Grunt
     tests:
       item:       '.objects > *'    # an individual record
       filename:   '.id'             # the filename within that record
-
-            expand:     true
+      theItemFilter: (item)->       # a filter function
+        item.id != null             # true = include, false = ignore
+      expand:     true
       flatten:    true
       cwd:      'test'
       src:      'fixtures/*.json'
@@ -35,6 +36,9 @@ Please see [jsonselect.org](http://www.jsonselect.org) for the select syntax.
 ## Parameters
 ### item
 A CSS selector that selects the items you want to extract.
+
+### itemFilter
+An optional filter function that takes an extracted `item` and returns true if the item should be written or false if not.
 
 ### filename
 An item selector that defines the filename for an item.

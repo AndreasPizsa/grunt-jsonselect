@@ -33,9 +33,16 @@ exports.jsonselect =
     test.equal actual, expected, "should describe what the default behavior is."
     test.done()
 
-  filetwo: (test) ->
+  filetwo_should_not_exist: (test) ->
     test.expect 1
-    actual = grunt.file.read("tmp/file2.json")
-    expected = grunt.file.read("test/expected/file2.json")
+    test.throws(()->
+        grunt.file.read("tmp/file2.json")
+    )
+    test.done()
+
+  filethree: (test) ->
+    test.expect 1
+    actual = grunt.file.read("tmp/file3.json")
+    expected = grunt.file.read("test/expected/file3.json")
     test.equal actual, expected, "should describe what the custom option(s) behavior is."
     test.done()

@@ -14,7 +14,8 @@ module.exports = (grunt) ->
 		jsonselect = require 'JSONSelect'
 		theItemSelector     = @data.item
 		theFilenameSelector = @data.filename
-		
+		theItemFilter				= @data.itemFilter ? ()-> true
+
 		grunt.fail.fatal('"item" is required') if not theItemSelector
 		grunt.fail.fatal('"filename" is required') if not theFilenameSelector
 
@@ -32,6 +33,7 @@ module.exports = (grunt) ->
 			).map((filepath) ->
 				theData = grunt.file.readJSON filepath
 				jsonselect.forEach theItemSelector,theData,(inObject)->
+					return if not theItemFilter(inObject)
 					theFilename = path.dirname(f.dest) + path.sep + jsonselect.match(theFilenameSelector,inObject) + path.extname(f.dest)
 					grunt.log.writeln "File \"" + theFilename + "\" created."
 					grunt.file.write theFilename, JSON.stringify(inObject)

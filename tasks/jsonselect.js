@@ -2,10 +2,13 @@
   "use strict";
   module.exports = function(grunt) {
     return grunt.registerMultiTask("jsonselect", "Select elements from a JSON file and write them to individual JSON files.", function() {
-      var jsonselect, path, theFilenameSelector, theItemSelector;
+      var jsonselect, path, theFilenameSelector, theItemFilter, theItemSelector, _ref;
       jsonselect = require('JSONSelect');
       theItemSelector = this.data.item;
       theFilenameSelector = this.data.filename;
+      theItemFilter = (_ref = this.data.itemFilter) != null ? _ref : function() {
+        return true;
+      };
       if (!theItemSelector) {
         grunt.fail.fatal('"item" is required');
       }
@@ -26,6 +29,9 @@
           theData = grunt.file.readJSON(filepath);
           return jsonselect.forEach(theItemSelector, theData, function(inObject) {
             var theFilename;
+            if (!theItemFilter(inObject)) {
+              return;
+            }
             theFilename = path.dirname(f.dest) + path.sep + jsonselect.match(theFilenameSelector, inObject) + path.extname(f.dest);
             grunt.log.writeln("File \"" + theFilename + "\" created.");
             return grunt.file.write(theFilename, JSON.stringify(inObject));
