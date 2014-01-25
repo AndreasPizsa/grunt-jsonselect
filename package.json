@@ -1,7 +1,7 @@
 {
   "name": "grunt-jsonselect",
   "description": "Select elements from a JSON file and write them to individual JSON files.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/AndreasPizsa/grunt-jsonselect",
   "author": {
     "name": "Andreas Pizsa",
